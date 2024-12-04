@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    font-family: "Poppins", serif;
+}
+
+.login-form{
+    width: 40%;
+    padding: 3rem;
+    border: 10px solid #161631;;
+}
+.login-form input{
+    background-color: transparent !important;
+    color: #c9cde0 !important;
+    border-radius: 0px !important;
+    border-color: #161631;
+    padding: 10px;
+}
+
+.login-form input::placeholder{
+    color: hsl(230, 12%, 40%);
+    font-size: 0.9rem;
+}
+
+.btnLogin{
+    transition: all .4s;
+}
+
+.btnLogin:hover{
+    background-color: #fd7e14;
+    border: 0.8px solid #fd7e14;
+    transition: all .4s;
+}
+
+
+/* Css for title favorite page */
+.bannerFavorite{
+    opacity: 0.4;
+}
+
+.title_favourite{
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    user-select: none;
+    font-size: 4rem;
+    position: absolute;
+    top: calc(50% - 29px);
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-image: url(../images/backgrounds/back.png);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+}
+
+@keyframes back{
+    100%{
+        background-position: 2000px 0;
+    }
+}
+
+

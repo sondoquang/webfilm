@@ -1,0 +1,157 @@
+/* ============= css for detail product page ================= */
+.newsleter{
+    display: flex;
+}
+.newsleter> span{
+    display: flex;
+    align-items: center;
+}
+.newsleter input{
+    padding: 0.3rem 0.5rem;
+    background-color: transparent;
+    border-bottom: 2px solid gray;
+    border-radius: 6px;
+    color: aliceblue;
+}
+
+.newsleter input::placeholder{
+    color: hsla(227, 53%, 97%, 0.4);
+    font-size: 0.9rem;
+}
+.btn__sendMail{
+   width: 100%;
+    height:100% ;
+    padding: 0.25rem;
+    background-color: transparent;
+}
+
+.btn__sendMail i{
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.play__btn__video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10 !important;
+}
+
+
+/* ==== RIGHT SIDE ====== */
+.right__side{
+    background-color: #03061a;
+}
+
+.right_side_v1{
+    position: relative;
+}
+
+.play__btn__video{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+}
+.poster__film{
+    position: relative;
+}
+
+.img:after{
+    position: absolute;
+    content: "";    
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top,rgba(2, 2, 15, 0.4) 10%,rgb(1, 194, 230) 150%);
+}
+
+
+.detail__Infor__movies .title ,
+.detail__Infor__movies .Infor_content {
+    color: #cecece;
+}
+
+/* ========== Nhúng Iframe ========= */
+.poup__play__video{
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(230, 75%, 32%, .1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); 
+    z-index: var(--z-modal);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show__video{
+    opacity: 1;
+    visibility:visible;
+}
+
+div.close{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 2%;
+    left: 7%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #03061a;
+}
+
+div.close:hover{
+    cursor: pointer;
+}
+
+div.close i{
+    color: #cecece;
+}
+
+.video__iframe{
+    width: 1200px;
+    height: 679px;
+}
+
+/* Css for title favorite page */
+.bannerFavorite{
+    opacity: 0.4;
+}
+
+.title_favourite{
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    user-select: none;
+    font-size: 5rem;
+    position: absolute;
+    top: calc(50% - 29px);
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-image: url(../images/backgrounds/back.png);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+}
+
+@keyframes back{
+    100%{
+        background-position: 2000px 0;
+    }
+}
+
+.detail__Infor__movies  p{
+    user-select: none;
+    color: #c3bfbf;
+    text-align: justify;
+}

@@ -1,0 +1,303 @@
+/* Css for home page */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');/*===============VARIABLES CSS ==============*/
+:root {
+    --header-height: 3.5rem;
+    /*===========COLOR CSS============*/
+    /*Color mode HSL(hue,saturation,lightness)*/
+    --first-color: #0eb5df;
+    --title-color: #ffffff;
+    --title_v1-color: hsl(230,75%,15%);
+    --formal-title-color: #060a2f;
+    --text-color: hsl(230, 12%, 40%);
+    --body-color: hsl(230, 100%, 98%);
+    --container-color: hsl(230, 100%, 97%);
+    --border-color: hsl(230, 25%, 80%);
+    /*===========FONT AND TYPOGRAPY============*/
+    --body-font: "Syne", sans-serif;
+    --h2-font-size: 1.25rem;
+    --normal-font-size: 0.939rem;
+    /*===========FONT WEIGHT============*/
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    /*==========Z-INDEX============*/
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: "Libre Franklin", sans-serif;
+}
+label{
+    user-select: none;
+}
+
+
+.wrapper{
+    display: flex;
+}
+
+.main{
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    background-color: #ebebeb;
+}
+
+#sidebar{
+    width: 15rem;
+    min-width: 15rem;
+    z-index: 1;
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+}
+
+#sidebar.notExpand{
+    width: 70px;
+    min-width: 70px;
+}
+
+#toggle-btn{
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+#toggle-btn{
+    font-size: 1.5rem;
+    color: #060a2f
+}
+.sidebar-logo{
+    margin: auto 0;
+}
+
+.sidebar-logo a{
+    color: #060a2f;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#sidebar.notExpand .sidebar-logo,
+#sidebar.notExpand a.sidebar-link span{
+    display: none;
+}
+.sidebar-nav{
+    padding:2rem 0rem;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link{
+    padding: 0.6rem 1.625rem;
+    color: var(--formal-title-color );
+    display: block;
+    font-size: 0.9rem;
+    white-space:nowrap;
+    border-left: 3px solid transparent;
+    transition: all .4s;
+
+}
+a.sidebar-link i{
+    font-size: 1.2rem;
+    margin-right: .75rem;
+    color: #060a2f;
+}
+
+a.sidebar-link:hover{
+    background-color: rgba(255, 255, 255, 0.075);
+    border-left: 3px solid var(--first-color);
+    transition: background-color .4s;
+}
+
+.sidebar-item{
+    position: relative;
+}
+
+#sidebar.notExpand .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: aliceblue;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar.notExpand .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar:not(.notExpand) .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.notExpand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.sidebar-link:hover,.sidebar-link:hover i{
+    color: var(--first-color);
+    transition: color .4s !important;
+}
+
+/* QTUser */
+.btn {
+    min-width: 80px;
+}
+
+.btn-color {
+    background-color: #287baf;
+    color: aliceblue;
+    transition: all .3s;
+}
+
+.btn-color:hover {
+    background-color: aliceblue;
+    border: 1px solid #287baf;
+    color: #287baf;
+    transition: all .3s;
+}
+
+.btn-cl-page {
+    padding: 4px 6px 4px 6px !important;
+    border: 2px solid #cff4fc;
+    color: #287baf;
+}
+
+.btn-cl-page:hover {
+    background-color: #cff4fc;
+    transition: all .25s;
+}
+table tr td:last-child,
+table tr th:last-child{
+    text-align: center;
+}
+input::placeholder{
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.input-control.success input{
+    border: 2px solid#09c372 !important;
+}
+
+.input-control.error input{
+    border: 2px solid #ff3860 !important;
+}
+
+.input-control .error{
+    font-size: 0.8rem;
+    color: #ff3860;
+}
+
+/*========= CSS FOR TABS  =============*/
+.container-tabs{
+    position: relative;
+}
+
+.tab-pane > div{
+    background-color: aliceblue;
+    min-height: 100vh;
+}
+/* Tab-item */
+.tab-item{
+    background-color: #d1e6f6;
+    border-top-left-radius:  0.4rem;
+    border-top-right-radius:  0.4rem;
+    margin-right: 0.2rem;
+}
+.tab-item:hover{
+    cursor: pointer;
+}
+
+/* line */
+div.line{
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    border-radius: 15px;
+    background-color: #333b40;
+    transition: all 0.4s ease;
+}
+
+.active_tab {
+    background-color: #eff8ff;
+}
+
+.active_pane{
+    display: block !important;
+}
+
+/* Css for image user */
+.imageUser img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.card__user{
+    box-shadow:0 .2rem .3rem hsl(230,75%,15%);
+}
+
+.sidebar-item.active{
+    background-color: #287baf;
+    a{
+        color: #fff;
+    }
+    i{
+        color: #fff;
+    }
+    transition: all .4s;
+}
+
+/* ======== CSS FOR DASHBOARD ======== */
+.topShareDate, .topLikeDate, .topVideoNew{
+    padding: 1rem;
+    align-items: center;
+}
+
+
+.topShareDate > div, .topLikeDate > div, .topVideoNew > div{
+    box-shadow: 0 .3rem .4rem hsl(230,75%,15%);
+}
