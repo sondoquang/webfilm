@@ -1,7 +1,7 @@
 // API like "Like" //
 function likeApi(button,id) {
     // Gửi yêu cầu POST đến RESTful API sử dụng Fetch
-    fetch("http://localhost:3979/TMovies/api/videos/"+id, {
+    fetch("http://localhost:6789/TMovies/api/videos/"+id, {
         method: 'POST',  // Hoặc PUT nếu bạn cập nhật dữ liệu hiện có //
     })
         .then(response => response.json())
@@ -17,7 +17,7 @@ function likeApi(button,id) {
 /*== Api dislike cho video ==*/
 function disLikeApi(button,id) {
     // Gửi yêu cầu POST đến RESTful API sử dụng Fetch //
-    fetch("http://localhost:3979/TMovies/api/videos/"+id, {
+    fetch("http://localhost:6789/TMovies/api/videos/"+id, {
         method: 'DELETE',  // Hoặc PUT nếu bạn cập nhật dữ liệu hiện có
     })
         .then(response => response.json())

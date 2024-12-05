@@ -26,13 +26,13 @@ public class VideoApi extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Integer id = Integer.parseInt(request.getPathInfo().substring(1));
-        System.out.println("Post api: "+id);
         VideoDAO vdao = new VideoDAOImple();
         FavouriteDAO fdao = new FavouriteDAOImple();
         User user = (User) request.getSession().getAttribute("user");
@@ -48,7 +48,6 @@ public class VideoApi extends HttpServlet {
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FavouriteDAO dao = new FavouriteDAOImple();
         Integer videoId = Integer.parseInt(request.getPathInfo().substring(1));
-        System.out.println("Deleter api: "+videoId);
         User user = (User) request.getSession().getAttribute("user");
         Favourite favourite = dao.selectVideoByUserIdAndVideoId(videoId,user.getId());
         if (dao.deleteById(favourite.getId()) !=null){

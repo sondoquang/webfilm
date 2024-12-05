@@ -19,6 +19,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.4.0/remixicon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/views/assets/css/styleIndex.css"/>
     <title>TMovies</title>
+    <style>
+        /* Xử lý tràn title*/
+        .titleItemFilm{
+            overflow: hidden;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
+            display: -webkit-box !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -304,17 +313,17 @@
     <div class="row list_items">
         <c:forEach var="item" items="${list02}">
             <div class="col-xl-3 col-lg-4 col-sm-6 mt-3 suggested__item">
-                <div class="wrap__item" style="overflow: hidden;">
-                    <div class="item__image">
+                <div class="wrap__item">
+                    <div class="item__image" style="overflow: hidden; padding: 4px">
                         <img
-                                src="${pageContext.request.contextPath}/views/assets/images/products/${item.poster}"
+                                src="${pageContext.request.contextPath}/views/assets/images/products/${item.imagePoster}"
                                 alt="">
                     </div>
                     <div class="item__content">
                         <div class="ct">
                             <span>English</span>
                         </div>
-                        <a href="${pageContext.request.contextPath}/videos/detail/${item.id}">${item.title}</a>
+                        <a href="${pageContext.request.contextPath}/videos/detail/${item.id}" class="titleItemFilm">${item.title}</a>
                         <div class="body d-flex">
                             <div class="duration__time">
                                 <i class="ri-time-line"></i><span>2 Hr 32 Mn</span>

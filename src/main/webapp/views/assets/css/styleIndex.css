@@ -446,6 +446,8 @@ label,p,span{
     
 }
 
+
+
 @media  screen and (min-width: 1150px) {
     .container{
         margin-inline: auto;

@@ -14,6 +14,7 @@ import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.DateTimeConverter;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -52,11 +53,11 @@ public class AdminVideoController extends HttpServlet {
             e.printStackTrace();
         }
 
+
         /*Xử lý index */
         if (path.contains("index")) {
             pageNo = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
             String search = request.getParameter("search") == null ? "" : request.getParameter("search");
-            System.out.println("Status:"+request.getParameter("status"));
             String status = request.getParameter("status") != null ? request.getParameter("status"):"";
             if (status.isEmpty()) {
                 list = dao.findAllByTitleOrStatus((pageNo - 1) * 10, 10, search);
@@ -78,11 +79,26 @@ public class AdminVideoController extends HttpServlet {
         /*== Xử lý upload ảnh ==*/
         else if (path.contains("upload")) {
             isEdit = true;
-            Part part = request.getPart("poster");
-            video.setPoster(part.getSubmittedFileName());
-            video.setImagePoster(part.getSubmittedFileName());
-            upload(request,part,"/views/assets/images/banners");
-            upload(request,part,"/views/assets/images/products");
+            video.setPoster(request.getParameter("poster"));
+            video.setImagePoster(request.getParameter("imagePoster"));
+            Collection<Part> parts = request.getParts();
+            try {
+                for(Part part : parts) {
+                    if(part.getName().equals("photoBanner")) {
+                        if(!part.getSubmittedFileName().isEmpty()){
+                            video.setPoster(part.getSubmittedFileName());
+                            upload(request,part,"/views/assets/images/banners");
+                        }
+                    }else if(part.getName().equals("photoPoster")) {
+                        if(!part.getSubmittedFileName().isEmpty()){
+                            video.setImagePoster(part.getSubmittedFileName());
+                            upload(request,part,"/views/assets/images/products");
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                request.setAttribute("error", e.getMessage());
+            }
             request.setAttribute("video", video);
         }
 
@@ -155,7 +171,6 @@ public class AdminVideoController extends HttpServlet {
 
     private String upload(HttpServletRequest request, Part part, String folder) {
         String path = request.getServletContext().getRealPath(folder);
-        System.out.println(path);
         File dir = new File(path);
         if (!dir.exists()) dir.mkdirs();
         String filePath = path + File.separator+part.getSubmittedFileName();

@@ -62,9 +62,9 @@
                                 </div>
                                 <div class="row ps-5 pe-5">
                                     <div class="col-sm-4 p-2 pb-3">
-                                        <img src="${pageContext.request.contextPath}/views/assets/images/banners/${video.poster}" class="rounded img-thumbnail  w-100" style="height: 400px; object-fit: scale-down;" alt="">
-                                        <label for="img" style="display: inline-block;width: 100%;text-align: center; color: #00a3ff;cursor: pointer; padding-top: 6px;">
-                                        <input type="file" id="img" name="poster"  class="align-items-center" hidden onchange="this.form.submit()">Choose file banner</label>
+                                        <img src="${pageContext.request.contextPath}/views/assets/images/banners/${video.poster}" class="rounded-0 img-thumbnail  w-100" style="height: 400px; object-fit: scale-down;" alt="">
+                                        <label for="img1" style="display: inline-block;width: 100%;text-align: center; color: #00a3ff;cursor: pointer; padding-top: 6px;" class="btn btn-info text-white rounded-0">
+                                        <input type="file" id="img1" name="photoBanner"  class="align-items-center" hidden onchange="this.form.submit()">Choose Image Banner</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="col mb-3 input-control">
@@ -113,10 +113,20 @@
                                     </div>
                                 </div>
                                 <div class="row ps-5 pe-5">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-4 p-2 pb-3">
+                                        <img src="${pageContext.request.contextPath}/views/assets/images/products/${video.imagePoster}" class="rounded-0 img-thumbnail  w-100" style="height: 400px; object-fit: scale-down;" alt="">
+                                        <label for="img" style="display: inline-block;width: 100%;text-align: center; color: #00a3ff;cursor: pointer; padding-top: 6px;" class="btn btn-info text-white rounded-0">
+                                            <input type="file" id="img" name="photoPoster"  class="align-items-center" hidden onchange="this.form.submit()">Choose Image Poster</label>
+                                    </div>
+                                    <div class="col-sm-8">
                                         <div class="form-floating">
                                             <textarea class="form-control" placeholder="Enter description" id="floatingTextarea2" style="min-height: 400px" required name="description">${video.description}</textarea>
                                             <label for="floatingTextarea2">Description</label>
+                                        </div>
+                                        <div class="col mb-3 input-control">
+                                            <label class="form-label">Name Image:</label>
+                                            <input type="text" class="form-control" name="poster" value="${video.poster}" readonly required>
+                                            <input type="text" class="form-control" name="imagePoster" value="${video.imagePoster}" readonly required>
                                         </div>
                                     </div>
                                 </div>
@@ -132,6 +142,7 @@
                                         ${message}
                                     </div>
                                 </div>
+                                <p class="text-danger">${error}</p>
                                 <div class="row mt-5">
                                     <div class="col-12 p-2 " style="text-align: center;">
                                         <button type="submit" class="btn btn-color m-1" formaction="${url}/create?page=${pageNo}" onclick="submitForm()" value="0">Create</button>

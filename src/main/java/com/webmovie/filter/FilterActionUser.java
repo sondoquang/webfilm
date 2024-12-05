@@ -25,7 +25,7 @@ public class FilterActionUser extends HttpFilter implements Filter {
             throws IOException, ServletException {
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null) {
-            response.sendRedirect("/Website/login");
+            response.sendRedirect("/TMovies/login");
             return;
         }
         chain.doFilter(request, response);
