@@ -220,7 +220,7 @@
             <c:forEach var="item" items="${list01}">
                 <div class="col-sm-12 col-lg-3 video__item gradient" style="min-height: 400px">
                     <img
-                            src="${pageContext.request.contextPath}/views/assets/images/products/${item.poster}"
+                            src="${pageContext.request.contextPath}/views/assets/images/products/${item.imagePoster}"
                             alt="film">
                     <div class="movies__content"
                          style="padding-bottom: 0.7rem; background-color: rgba(0, 0, 0, 0.6);">

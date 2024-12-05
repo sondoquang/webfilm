@@ -30,6 +30,7 @@ public class HomeController extends HttpServlet {
         FavouriteDAO fdao = new FavouriteDAOImple();
         HttpSession session = request.getSession();
         User user =(User) session.getAttribute("user");
+
         /*List main video*/
         List<Video> list01 = null;
         List<Video> list02 = null;
@@ -49,7 +50,7 @@ public class HomeController extends HttpServlet {
                 String sortBy = request.getParameter("sortBy");
                 if(!sortBy.isEmpty()){
                     pageNo01 = !request.getParameter("page1").isEmpty()?Integer.parseInt(request.getParameter("page1")):1;
-                    list01 = vdao.findAllByTitleOrStatus((pageNo01-1)*8,8,"",Boolean.parseBoolean(sortBy));
+                    list01 = vdao.findAllByTitleOrStatus((pageNo01-1)*16,16,"",Boolean.parseBoolean(sortBy));
                     sumCountVideo = vdao.selectSumCountVideoActive(Boolean.parseBoolean(sortBy));
                     request.setAttribute("list01", list01);
                     request.setAttribute("isActive", Boolean.parseBoolean(sortBy));
@@ -84,7 +85,7 @@ public class HomeController extends HttpServlet {
         /* Check null 2 list quan trọng*/
         if(list01 == null) {
             int pageNo1 = request.getParameter("page1")!=null?Integer.parseInt(request.getParameter("page1")):1;
-            request.setAttribute("list01", vdao.findAll((pageNo1-1)*8,8));
+            request.setAttribute("list01", vdao.findAll((pageNo1-1)*16,16));
         }
         if(list02 == null) {
             int pageNo2 = request.getParameter("page2")!=null?Integer.parseInt(request.getParameter("page2")):1;
